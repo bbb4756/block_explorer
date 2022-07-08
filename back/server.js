@@ -7,12 +7,13 @@ const blockRouter = require('./routes/block');
 const txRouter = require('./routes/tx');
 const searchRouter = require('./routes/search')
 const COOKIE_SECRET = process.env.COOKIE_SECRET || 'gyuri';
+const server = process.env.SERVER
 
 app.use(express.json());
 app.use(cookieParser(COOKIE_SECRET));
 app.use(
     cors({
-        origin: 'http://172.31.3.143:3000',
+        origin: `${server}:3000`,
         credentials: true,
     })
 );

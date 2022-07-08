@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import background1 from '../image/gyul_1.png'
+import background2 from '../image/gyul_2.png'
 const Wrap = styled.div `
     width:100%;
     height: auto;
@@ -11,25 +12,29 @@ const Header = styled.div `
 width: 100%;
 height:100px;
 display:flex;
-justify-content:space-between;
+justify-content:space-around;
 `
 
-const Logo = styled.div`
-width:10%;
+const Logo1 = styled.img.attrs({
+    src: `${background1}`
+})`
+
+width:100%;
 height:100%;
-display:flex;
-justify-content:center;
-    >a{
-        display:block;
-        font-size:20px;
-        align-self:center;
-        color: #FFAA28;
-        font-family:"Py-Regular";
-    }
+
+`
+
+const Logo2 = styled.img.attrs({
+    src: `${background2}`
+})`
+
+width:100%;
+height:100%;
+
 `
 
 const Title = styled.div`
-    width:80%;
+    width:60%;
     height:100%;
     text-align:center;
     display:flex;
@@ -50,9 +55,9 @@ const DefaultHeader = ()=>{
 
 return(
     <Header>
-        <Logo><a href='/'>Gyul Scan</a></Logo>
+        <a href="/"><Logo1/></a>
         <Title><a href='/'>Gyul Scan</a></Title>
-        <Logo><a href='/'>Gyul Scan</a></Logo>
+        <a href="/"><Logo2/></a>
     </Header>
 )
 }

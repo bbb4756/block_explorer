@@ -13,9 +13,11 @@ const TxInfo = ()=>{
     const dispatch = useDispatch();
     const {individual_tx} = useSelector((state) => state.individual_tx_info);
     const { idx } = useParams();
-    console.log(individual_tx, idx)
+    console.log(individual_tx)
+    console.log(idx)
 
     useEffect(() => {
+        
         dispatch(individual_tx_request(idx));
     }, []);
 
