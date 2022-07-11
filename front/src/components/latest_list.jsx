@@ -114,13 +114,17 @@ const ListContent = styled.div`
             width:50%;
             >div{
                 display:flex;
-                justify-content:center;
             }
+
             >div>span{
                 font-size:14px;
                 display:block;
                 width:60px;
+                
             }
+            
+                
+
         }
 
 
@@ -159,6 +163,7 @@ function slice_letter(hash){
 const BlockList = ()=>{
     const dispatch = useDispatch();
     const latest_block = useSelector((state) => state.block_total.blocks); //가져올 state
+    console.log("최근 블럭",latest_block)
     const latest_tx = useSelector((state)=>state.block_total.txs)
     useEffect(() => {
         dispatch(create_request())
@@ -172,7 +177,7 @@ const BlockList = ()=>{
             <ListContent>
                 <h3>Latest Blocks</h3>
                 <div className='content_list'>
-                    {latest_block.map((v,i)=>(
+                    {latest_block&& latest_block.map((v,i)=>(
                         <div className="bk_one" key={i}>
                             <span className='bk'><p>BK</p></span>
                             <div className='block_num'>
@@ -196,13 +201,21 @@ const BlockList = ()=>{
                             <span className='tx'><p>TX</p></span>
                             <div className='transaction_hash'>
                                 <span>TransactionHash</span>
-                                <Link to={`/tx/`+ v.transactionHash} className="link">
-                                    {slice_letter(v.transactionHash)}
+                                <Link to={`/tx/`+ v.hash} className="link">
+                                    {slice_letter(v.hash)}
                                 </Link>
                             </div>
                             <div className='Transction_people'>
-                                <div><span>From</span> {slice_letter(v.sender)}</div>
-                                <div><span>To</span>{slice_letter(v.receiver)}</div>
+                                <div>
+                                    <span>From</span>
+                                    <Link to={`/account/`+v.from}>{slice_letter(v.from)}</Link>
+                                </div>
+                                
+                                <div>
+                                    <span>To</span>
+                                    <Link to={`/account/`+v.to}>{slice_letter(v.to)}</Link>
+                                </div>
+                                
                             </div>
                         </div>
                     ))}

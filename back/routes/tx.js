@@ -8,7 +8,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:9000'));
 router.post('/:idx', async (req, res) => {
     const idx = req.body.payload;
     console.log(idx)
-    const sql = `SELECT * FROM transaction where transactionHash='${idx}'`;
+    const sql = `SELECT * FROM transaction where hash='${idx}'`;
     try {
         const [[result]] = await pool.execute(sql);
         console.log("rufrhkss",result)

@@ -23,14 +23,14 @@ CREATE TABLE `block`(
 CREATE TABLE `transaction`(
     `blockHash` CHAR(66) NOT NULL,
     `blockNumber` INT NOT NULL,
-    `contractAddress` VARCHAR(10),
-    `cumulativeGasUsed` INT NOT NULL,
-    `effectiveGasPrice` INT NOT NULL,
-    `sender` CHAR(42) NOT NULL,
-    `gasUsed` INT NOT NULL,
-    `status` VARCHAR(5) NOT NULL,
-    `receiver` CHAR(42) NOT NULL,
-    `transactionHash` CHAR(66) NOT NULL,
+    `from` VARCHAR(100) NOT NULL,
+    `gas` INT NOT NULL,
+    `gasPrice` INT NOT NULL,
+    `hash` VARCHAR(66) NOT NULL,
+    `input` VARCHAR(20) NOT NULL,
+    `nonce` VARCHAR(20) NOT NULL,
+    `to` VARCHAR(42) NOT NULL,
     `transactionIndex` INT NOT NULL,
+    `value` INT NOT NULL,
     `type` VARCHAR(10) NOT NULL
 );

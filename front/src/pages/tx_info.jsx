@@ -47,55 +47,55 @@ const TxInfo = ()=>{
                             transactionHash
                         </div>
                         <div>
-                            {individual_tx.transactionHash}
+                            {individual_tx.hash}
                         </div>
                     </li>
                     <li>
                         <div>
-                            cumulativeGasUsed
+                            from
                         </div>
                         <div>
-                            {individual_tx.cumulativeGasUsed}
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            effectiveGasPrice
-                        </div>
-                        <div>
-                            {individual_tx.effectiveGasPrice}
+                            {individual_tx.from}
                         </div>
                     </li>
                     <li>
                         <div>
-                            sender
+                            to
                         </div>
                         <div>
-                            {individual_tx.sender}
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            receiver
-                        </div>
-                        <div>
-                            {individual_tx.receiver}
+                            {individual_tx.to}
                         </div>
                     </li>
                     <li>
                         <div>
-                            transaction index
+                            value
                         </div>
                         <div>
-                            {individual_tx.transactionIndex}
+                            {individual_tx.value + "ETH"}
                         </div>
                     </li>
                     <li>
                         <div>
-                            contract address
+                            nonce
                         </div>
                         <div>
-                            {individual_tx.contractAddress== null&& "null"}
+                            {individual_tx.nonce}
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            gas
+                        </div>
+                        <div>
+                            {individual_tx.gas}
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            gasPrice
+                        </div>
+                        <div>
+                            {individual_tx.gasPrice * 10 ** (-9) + "Gwei"}
                         </div>
                     </li>
 

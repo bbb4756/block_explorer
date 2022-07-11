@@ -8,7 +8,7 @@ import {Wrap,DefaultHeader} from './components/defaultLayout';
 import Index from './pages';
 import BlockInfo from './pages/block_info';
 import TxInfo from './pages/tx_info';
-
+import { AccountPage } from './pages/account';
 const App = ()=>{
   return (
     <Wrap>
@@ -18,6 +18,7 @@ const App = ()=>{
             <Route path="/" index element={<Index />} />
             <Route path="/block/:idx" element={<BlockInfo />} />
             <Route path="/tx/:idx" element={<TxInfo />} />
+            <Route path="/account/:idx" element= {<AccountPage/>}/>
         </Routes>
       </BrowserRouter>
     </Wrap>

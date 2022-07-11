@@ -77,46 +77,40 @@ router.post('/create', async (req, res) => {
             } catch (e) {
                 console.error(e.message);
             }
-
+            console.log('문제1')
             if (transactions.length > 0) {
+                console.log('문제2')
                 for (let j = 0; j < transactions.length; j++) {
-                    const tx = await web3.eth.getTransactionReceipt(transactions[j].hash);
+                    const tx = (transactions[j]);
+                    console.log("tx임아미라ㅣㅁ아리ㅏㅇ림ㄴ", tx)
                     const {
                         blockHash,
                         blockNumber,
-                        contractAddress,
-                        cumulativeGasUsed,
-                        effectiveGasPrice,
                         from,
-                        gasUsed,
-                        status,
+                        gas,
+                        gasPrice,
+                        hash,
+                        input,
+                        nonce,
                         to,
-                        transactionHash,
                         transactionIndex,
-                        type,
+                        type
                     } = tx;
-                    const sql = `INSERT INTO transaction(
-                        blockHash, blockNumber, contractAddress, cumulativeGasUsed, effectiveGasPrice, 
-                        sender, gasUsed, status, receiver, transactionHash, 
-                        transactionIndex, type
-                    ) VALUES(
-                        ?, ?, ?, ?, ?, 
-                        ?, ?, ?, ?, ?, 
-                        ?, ?
-                    )`;
+                    const value = tx.value * 10 ** (-18)
+                    const sql = `INSERT INTO transaction VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
                     const params = [
                         blockHash,
                         blockNumber,
-                        contractAddress,
-                        cumulativeGasUsed,
-                        effectiveGasPrice,
                         from,
-                        gasUsed,
-                        status,
+                        gas,
+                        gasPrice,
+                        hash,
+                        input,
+                        nonce,
                         to,
-                        transactionHash,
                         transactionIndex,
-                        type,
+                        value,
+                        type
                     ];
                     try {
                         const [result] = await pool.execute(sql, params);

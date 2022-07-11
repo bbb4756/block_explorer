@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     const {search_result} = req.body
     try {
         const sql = `SELECT * FROM block where hash="${search_result}"`;
-        const sql2 = `SELECT * from transaction where transactionHash="${search_result}"`;
+        const sql2 = `SELECT * from transaction where hash="${search_result}"`;
         const [result] = await pool.execute(sql);
         const [result2] = await pool.execute(sql2);
 

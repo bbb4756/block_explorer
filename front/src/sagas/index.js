@@ -4,11 +4,12 @@ import createSaga from './createSaga';
 
 import latestSaga from './latestSaga';
 import txSaga from './txSaga';
+import accountSaga from './accountSaga';
 
 
 export default function* rootSaga() {
 
     yield all([
-        latestSaga(), blockSaga(), txSaga(), createSaga()
+        latestSaga(), blockSaga(), txSaga(), createSaga(), accountSaga()
     ])
 }

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import axios from 'axios';
-
+const server = 'http://172.31.8.224'
+console.log(process.env)
 const Search = styled.div`
     width:80%;
     height:150px;
@@ -76,11 +77,12 @@ export const SearchInfo = ()=>{
             try{
                 const response = await axios.post('http://localhost:4000/search', option)
                 let search_option = response.data.option.type
+                console.log(server)
                 if(search_option == "block"){
-                    window.location.href = 'http://172.31.3.143:3000/block/' + response.data.result[0].number
+                    window.location.href = `${server}:3000/block/` + response.data.result[0].number
                     
                 } else if(search_option == "transaction"){
-                    window.location.href = 'http://172.31.3.143:3000/tx/' + response.data.result2[0].transactionHash
+                    window.location.href = `${server}:3000/tx/` + response.data.result2[0].hash
                 } else{
                     alert(" 검색 결과가 없습니다. ")
 
