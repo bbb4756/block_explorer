@@ -13,7 +13,7 @@
   
 </div>
 
-#### Project nickname : 🍩Gyul Scan🚂 
+#### Project nickname : Gyul Scan 🍊
 #### Project execution period : 2022.07.04 ~ 22.07.11
 
 ## Description
